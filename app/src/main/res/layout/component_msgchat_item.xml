@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/blue_smoke">
+    <ImageView
+        android:id="@+id/listuser_profile_photo"
+        android:layout_width="@dimen/profilephoto_small"
+        android:layout_height="@dimen/profilephoto_small"
+        android:background="@drawable/draw_circular_border_imageview"
+        android:elevation="@dimen/header_profile_elevation"
+        android:layout_marginStart="@dimen/main_padding"
+        android:layout_centerVertical="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile_demo_2"
+        android:contentDescription="@string/desc_imgphoto" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/listuser_profile_photo"
+        android:orientation="vertical" >
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/contact_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/main_padding_triple"
+            android:paddingEnd="@dimen/main_padding_double"
+            android:paddingTop="@dimen/main_padding_double"
+            android:text="@string/nome"
+            android:textColor="@color/main_color_gray_dk"
+            android:textSize="@dimen/main_small_title"
+            android:drawableStart="@android:drawable/presence_online"
+            android:drawablePadding="@dimen/main_padding_triple" />
+
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/contact_details"
+            android:paddingStart="@dimen/main_padding_double"
+            android:paddingEnd="@dimen/main_padding_double"
+            android:paddingBottom="@dimen/main_padding_double"
+            android:text="@string/detalhes"
+            android:textColor="@color/main_color_gray_dk"
+            android:textSize="@dimen/main_smallest_title" />
+    </LinearLayout>
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/lastMsgdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/main_padding_triple"
+        android:text="@string/text"
+        android:textColor="@color/main_color_gray_dk"
+        android:textSize="@dimen/main_smallest_title"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/iconState" />
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/iconState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableEnd="@android:drawable/sym_action_chat"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/main_padding_triple"
+        android:paddingEnd="@dimen/main_padding_double"
+        android:layout_centerVertical="true"
+        android:textColor="@color/main_color_gray_dk"
+        android:textSize="@dimen/main_smallest_title"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/main_padding"
+        android:drawablePadding="@dimen/main_padding_triple" />
+</RelativeLayout>

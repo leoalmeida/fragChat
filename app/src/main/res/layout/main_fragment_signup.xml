@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_old">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/mainLayout"
+        android:fitsSystemWindows="true">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/viewA"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp">
+
+
+                <ImageView android:src="@drawable/logo_ifsp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/logo" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/viewB"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/main_padding_quad"
+                android:paddingTop="10dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp">
+
+                <!-- Email Label -->
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp">
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/input_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:maxLength="100"
+                        android:ellipsize="end"
+                        android:nextFocusDown="@+id/input_name"
+                        android:hint="@string/email_user" />
+                </android.support.design.widget.TextInputLayout>
+
+
+                <!--  Name Label -->
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp">
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/input_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:maxLength="100"
+                        android:ellipsize="end"
+                        android:inputType="textCapWords"
+                        android:nextFocusDown="@+id/input_apelido"
+                        android:hint="@string/nome" />
+                </android.support.design.widget.TextInputLayout>
+
+                <!-- Apelido Label -->
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp">
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/input_apelido"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:maxLength="100"
+                        android:ellipsize="end"
+                        android:inputType="textLongMessage"
+                        android:nextFocusDown="@+id/avatar_list"
+                        android:hint="@string/apelido" />
+                </android.support.design.widget.TextInputLayout>
+
+                <!-- Avatar Label -->
+                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/avatar_list"
+                    android:text="Avatar"
+                    android:nextFocusDown="@+id/header_list"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:text="0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:nextFocusDown="@+id/radio_avatar1"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/radio_avatar0"
+                        />
+                    <RadioButton
+                        android:text="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:nextFocusDown="@+id/radio_avatar2"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/radio_avatar1"
+                        />
+                    <RadioButton
+                        android:text="2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:nextFocusDown="@+id/radio_avatar3"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/radio_avatar2"
+                        />
+                    <RadioButton
+                        android:text="3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:nextFocusDown="@+id/radio_avatar4"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/radio_avatar3"/>
+                    <RadioButton
+                        android:text="4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:nextFocusDown="@+id/radio_header0"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/radio_avatar4"/>
+                </RadioGroup>
+
+                <!-- Header Label -->
+                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/header_list"
+                    android:nextFocusDown="@+id/input_detalhes"
+                    android:text="Header"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:text="0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:nextFocusDown="@+id/radio_header1"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/radio_header0"
+                        />
+                    <RadioButton
+                        android:text="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:nextFocusDown="@+id/radio_header2"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/radio_header1"
+                        />
+                    <RadioButton
+                        android:text="2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:nextFocusDown="@+id/radio_header3"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/radio_header2"
+                        />
+                    <RadioButton
+                        android:text="3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:nextFocusDown="@+id/radio_header4"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/radio_header3"
+                        />
+                    <RadioButton
+                        android:text="4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:nextFocusDown="@+id/radio_header5"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/radio_header4"
+                        />
+                    <RadioButton
+                        android:text="5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:nextFocusDown="@+id/radio_header6"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/radio_header5"
+                        />
+                    <RadioButton
+                        android:text="6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:nextFocusDown="@+id/radio_header7"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/radio_header6"
+                        />
+                    <RadioButton
+                        android:text="7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:nextFocusDown="@+id/radio_header8"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/radio_header7"
+                        />
+                    <RadioButton
+                        android:text="8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:nextFocusDown="@+id/input_detalhes"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/radio_header8"
+                        />
+                </RadioGroup>
+
+
+                <!-- Detalhes Label -->
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp">
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/input_detalhes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textLongMessage"
+                        android:nextFocusDown="@+id/input_bio"
+                        android:hint="@string/detalhes" />
+                </android.support.design.widget.TextInputLayout>
+
+                <!-- Bio Label -->
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp">
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/input_bio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textLongMessage"
+                        android:nextFocusDown="@+id/input_password"
+                        android:hint="@string/bio" />
+                </android.support.design.widget.TextInputLayout>
+
+                <!-- Old Password Label -->
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="8dp"
+                    android:focusable="false"
+                    android:visibility="gone">
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/input_oldpassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:nextFocusDown="@+id/input_password"
+                        android:hint="@string/senha_anterior"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <!-- Password Label -->
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/main_padding_14x"
+                    android:layout_marginEnd="@dimen/main_padding_14x"
+                    android:layout_marginTop="@dimen/main_padding"
+                    android:layout_marginBottom="@dimen/main_padding">
+                    <android.support.design.widget.TextInputEditText android:id="@+id/input_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:hint="@string/senha"
+                        android:nextFocusDown="@+id/input_password2"
+                        android:maxLines="1" />
+                </android.support.design.widget.TextInputLayout>
+
+                <!-- Retype Password Label -->
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/main_padding_14x"
+                    android:layout_marginEnd="@dimen/main_padding_14x"
+                    android:layout_marginTop="@dimen/main_padding"
+                    android:layout_marginBottom="@dimen/main_padding">
+                    <android.support.design.widget.TextInputEditText android:id="@+id/input_password2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:hint="@string/redigite"
+                        android:nextFocusDown="@+id/fab_signup"
+                        android:maxLines="1"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/viewActions"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@id/mainLayout"
+        app:layout_anchorGravity="bottom|end"
+        android:backgroundTint="#fffff6"
+        tools:ignore="UnusedAttribute">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_cancel"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="20dp"
+            app:borderWidth="1dp"
+            app:backgroundTint="@color/delfabbutton"
+            android:elevation="7dp"
+            android:clickable="true"
+            android:src="@android:drawable/ic_menu_delete"
+            app:fabSize="normal"
+            app:layout_anchor="@id/viewActions"
+            app:layout_anchorGravity="bottom|start"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_signup"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="20dp"
+            app:borderWidth="1dp"
+            app:backgroundTint="@color/signup"
+            android:elevation="7dp"
+            android:clickable="true"
+            android:src="@android:drawable/ic_menu_save"
+            app:fabSize="normal"
+            app:layout_anchor="@id/viewActions"
+            app:layout_anchorGravity="bottom|end"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_update"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="20dp"
+            app:borderWidth="1dp"
+            app:backgroundTint="@color/signup"
+            android:elevation="7dp"
+            android:clickable="true"
+            android:src="@android:drawable/ic_menu_edit"
+            app:fabSize="normal"
+            app:layout_anchor="@id/viewActions"
+            app:layout_anchorGravity="bottom|end"/>
+
+        <ProgressBar
+            android:id="@+id/pb_carregando"
+            style="@style/Widget.AppCompat.ProgressBar.AppTheme.Indeterminate"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="20dp"
+            android:visibility="gone"
+            android:elevation="16dp"
+            app:layout_anchor="@id/viewActions"
+            app:layout_anchorGravity="bottom|end">
+        </ProgressBar>
+
+        <ImageView android:id="@+id/pb_ok"
+            android:src="@drawable/ic_fab_complete"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="20dp"
+            android:visibility="gone"
+            android:elevation="16dp"
+            app:layout_anchor="@id/viewActions"
+            app:layout_anchorGravity="bottom|end"
+            android:contentDescription="@string/desc_imgok" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/viewUserID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@id/viewA"
+        app:layout_anchorGravity="top|start">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_user_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:backgroundTint="@color/cyan_500"
+            app:borderWidth="1dp"
+            android:clickable="false"/>
+        <TextView
+            android:id="@+id/user_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#000000"
+            android:elevation="16dp"
+            android:textSize="30sp"
+            tools:ignore="UnusedAttribute" />
+    </FrameLayout>
+
+</android.support.design.widget.CoordinatorLayout>

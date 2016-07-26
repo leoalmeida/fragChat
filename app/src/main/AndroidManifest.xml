@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.edu.ifspsaocarlos.sdm.fragchat">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_mensageiro"
+        android:label="fragChat"
+        android:supportsRtl="true"
+        android:theme="@style/AppBaseTheme">
+        <activity
+            android:name=".view.ActivityLoading"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.messenger.ActivityMain" />
+        <activity android:name=".view.otherActivities.ActivityMenuActions" />
+        <activity android:name=".view.otherActivities.ActivityMensagemHandler" />
+        <activity android:name=".view.otherActivities.ActivityRunnableHandler" />
+        <activity android:name=".view.otherActivities.ActivityRunOnUIThread" />
+        <activity android:name=".view.otherActivities.ActivityAsyncTaskWS" />
+        <activity android:name=".view.otherActivities.ActivityEnviar" />
+        <activity android:name=".view.otherActivities.ActivityLer" />
+        <activity android:name=".view.otherActivities.ActivityMostrarMensagens" />
+        <activity android:name=".view.otherActivities.ActivityVolleyMessageHandler" />
+        <activity android:name=".notifications.NewContactNotification" />
+        <activity android:name=".notifications.NewMessagesNotification" />
+
+        <service
+            android:name=".service.MessengerContactsService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="SEARCH_NEW_CONTACTS_SERVICE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".service.MessengerReceiverService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="RECEIVE_NEW_MESSAGES_SERVICE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>

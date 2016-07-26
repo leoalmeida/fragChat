@@ -1,0 +1,9 @@
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:drawable="@drawable/draw_rect" />
+
+    <item
+        android:drawable="@drawable/draw_finish"
+        android:gravity="center_vertical|end"/>
+</layer-list>

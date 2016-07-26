@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fitsSystemWindows="true">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/viewA"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:background="@android:color/holo_blue_dark">
+
+                <ImageView android:src="@drawable/logo_ifsp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="72dp"
+                    android:layout_marginBottom="30dp"
+                    android:layout_gravity="center_horizontal" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/viewB"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/texto_informacao"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Texto: "/>
+
+                    <TextView
+                        android:id="@+id/tv_texto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""/>
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rawdata: "/>
+
+                    <TextView
+                        android:id="@+id/tv_rawdata"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""/>
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Processado: "/>
+                    <TextView
+                        android:id="@+id/tv_data"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""/>
+                </LinearLayout>
+                <!--  TEXT URL -->
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp">
+                    <EditText android:id="@+id/input_text_url"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapWords"
+                        android:hint="Text URL" />
+                </android.support.design.widget.TextInputLayout>
+
+                <!--  Data URL -->
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp">
+                    <EditText android:id="@+id/input_data_url"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapWords"
+                        android:hint="Data URL" />
+                </android.support.design.widget.TextInputLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_acessar_ws"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        app:borderWidth="0dp"
+        app:backgroundTint="@color/signup"
+        android:elevation="7dp"
+        android:clickable="true"
+        android:src="@android:drawable/ic_menu_upload"
+        app:fabSize="normal"
+        app:layout_anchor="@id/viewB"
+        app:layout_anchorGravity="bottom|right|end"/>
+
+    <FrameLayout
+        android:id="@+id/viewUserID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@id/viewA"
+        app:layout_anchorGravity="top|left">
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_user_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:backgroundTint="@color/cyan_500"
+            app:borderWidth="1dp"
+            android:clickable="false"/>
+        <TextView
+            android:id="@+id/user_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#000000"
+            android:elevation="16dp"
+            android:textSize="30dip"
+            />
+        <ProgressBar
+            android:id="@+id/pb_carregando"
+            style="@style/Widget.AppCompat.ProgressBar.AppTheme.Indeterminate"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:elevation="16dp"
+            app:layout_anchor="@id/fab_user_id"
+            app:layout_anchorGravity="center|left">
+        </ProgressBar>
+
+        <ImageView android:id="@+id/pb_ok"
+            android:src="@drawable/ic_fab_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            android:elevation="16dp"
+            app:layout_anchor="@id/fab_user_id"
+            app:layout_anchorGravity="center|left"/>
+
+        <!--style="?android:attr/indeterminateProgressStyle"-->
+    </FrameLayout>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white_old"
+    android:fitsSystemWindows="true">
+            <RelativeLayout
+                android:id="@+id/header_view"
+                android:layout_width="match_parent"
+                android:background="@color/transparent"
+                android:layout_height="@dimen/header_size">
+
+                <ImageView
+                    android:id="@+id/user_profile_photo"
+                    android:layout_width="@dimen/profilephoto_medium"
+                    android:layout_height="@dimen/profilephoto_medium"
+                    android:background="@drawable/draw_circular_border_imageview"
+                    android:elevation="@dimen/header_profile_elevation"
+                    android:layout_marginStart="@dimen/main_padding_double"
+                    android:layout_centerVertical="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/profile_demo_2"
+                    android:contentDescription="@string/desc_imgphoto" />
+
+                <ImageView
+                    android:id="@+id/header_cover_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/profile_header4"
+                    android:alpha="0.5"
+                    android:contentDescription="@string/desc_imgcover" />
+
+                <TextView
+                    android:id="@+id/user_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/id"
+                    android:textSize="@dimen/main_small_text"
+                    android:textStyle="bold"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/user_profile_photo" />
+
+                <TextView
+                    android:id="@+id/user_profile_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/header_maintext"
+                    android:textSize="@dimen/main_medium_title"
+                    android:textStyle="bold"
+                    android:layout_gravity="top"
+                    android:gravity="center_vertical"
+                    android:textColor="#000"
+                    android:layout_marginStart="@dimen/main_padding_triple"
+                    android:layout_marginTop="@dimen/main_padding_double"
+                    android:layout_toEndOf="@+id/user_profile_photo" />
+
+                <!-- Editext for Search -->
+                <EditText android:id="@+id/inputSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_smoke"
+                    android:paddingStart="@dimen/main_padding_double"
+                    android:paddingEnd="@dimen/main_padding_double"
+                    android:layout_marginEnd="@dimen/main_padding_quad"
+                    android:hint="@string/busca"
+                    android:inputType="textVisiblePassword"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true" />
+
+            </RelativeLayout>
+            <ListView
+                android:id="@+id/userList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/main_color_green"
+                android:dividerHeight="1dp"
+                tools:listitem="@layout/component_msgchat_item" >
+            </ListView>
+</LinearLayout>

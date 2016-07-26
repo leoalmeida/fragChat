@@ -1,0 +1,58 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="button_size">80dp</dimen>
+
+
+    <dimen name="pad_chat_item">45dp</dimen>
+    <dimen name="pad_chat_item1">10dp</dimen>
+
+    <dimen name="main_padding">5dp</dimen>
+    <dimen name="main_padding_double">10dp</dimen>
+    <dimen name="main_padding_triple">15dp</dimen>
+    <dimen name="main_padding_quad">20dp</dimen>
+    <dimen name="main_padding_5x">25dp</dimen>
+    <dimen name="main_padding_6x">30dp</dimen>
+    <dimen name="main_padding_8x">40dp</dimen>
+    <dimen name="main_padding_10x">50dp</dimen>
+    <dimen name="main_padding_14x">70dp</dimen>
+    <dimen name="main_padding_18x">90dp</dimen>
+
+
+    <dimen name="main_height_size_small">65dp</dimen>
+    <dimen name="main_height_size_medium">75dp</dimen>
+    <dimen name="main_height_size_big">90dp</dimen>
+
+    <dimen name="main_smallest_text">7sp</dimen>
+    <dimen name="main_smallest_title">12sp</dimen>
+    <dimen name="sec_small_text">13sp</dimen>
+    <dimen name="main_small_text">14sp</dimen>
+    <dimen name="main_small_title">16sp</dimen>
+    <dimen name="main_medium_text">18sp</dimen>
+    <dimen name="main_medium_title">20sp</dimen>
+    <dimen name="main_big_text">22sp</dimen>
+    <dimen name="main_big_title">24sp</dimen>
+    <dimen name="main_huge_title">32sp</dimen>
+
+    <dimen name="header_size">70dp</dimen>
+    <dimen name="header_progress_size">45dp</dimen>
+    <dimen name="header_icon_height">45dp</dimen>
+    <dimen name="header_icon_width">45dp</dimen>
+    <dimen name="header_drawer_size">190dp</dimen>
+
+    <dimen name="header_cover_size">120dp</dimen>
+    <dimen name="header_main_elevation">16dp</dimen>
+    <dimen name="header_profile_elevation">12dp</dimen>
+
+    <dimen name="profilephoto_smaller">40dp</dimen>
+    <dimen name="profilephoto_small">50dp</dimen>
+    <dimen name="profilephoto_medium">60dp</dimen>
+    <dimen name="profilephoto_big">70dp</dimen>
+    <dimen name="profilephoto_huge">110dp</dimen>
+    <dimen name="header_profilephoto_bigsize">260dp</dimen>
+    <dimen name="header_profilephoto_size">76dp</dimen>
+    <dimen name="profile_boxes_size">125dp</dimen>
+
+</resources>

@@ -1,0 +1,48 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".view.otherActivities.ActivityMenuActions">
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:icon="@android:drawable/ic_menu_gallery"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/nav_asynctaskws"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:orderInCategory="100"
+        android:title="@string/asynctaskws"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/nav_msgtests"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="@string/msgtests"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/nav_runnable"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="@string/runnable"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/nav_uithread"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="@string/uithread"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/nav_volley"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="@string/volley"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/nav_exit"
+        android:icon="@android:drawable/ic_delete"
+        android:title="@string/exit"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+</menu>

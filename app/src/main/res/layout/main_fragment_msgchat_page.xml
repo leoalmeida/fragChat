@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white_old"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:id="@+id/header_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent">
+
+        <HorizontalScrollView
+            android:id="@+id/horizontal_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:layout_alignParentEnd="true">
+
+            <LinearLayout
+                android:id="@+id/actions_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/main_padding"
+                android:layout_marginStart="@dimen/main_padding">
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+    </RelativeLayout>
+
+
+
+    <ListView
+        android:id="@+id/messageList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@color/white"
+        android:dividerHeight="@dimen/main_padding"
+        android:fastScrollEnabled="true"
+        android:paddingBottom="@dimen/main_padding_double"
+        android:paddingTop="@dimen/main_padding_double"
+        tools:listitem="@layout/component_msgchat_item_received" >
+    </ListView>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_light"
+            android:gravity="center_vertical"
+            android:padding="@dimen/main_padding"
+            tools:context=".view.messenger.ActivityMain" >
+
+        <EditText
+                android:id="@+id/subjectMsg"
+                style="@style/Base.V12.Widget.AppCompat.EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/btnSend"
+                android:maxLines="1"
+                android:maxLength="50"
+                android:ellipsize="end"
+                android:hint="@string/type_subj" >
+            </EditText>
+        <EditText
+            android:id="@+id/userMessage"
+            style="@style/Base.V12.Widget.AppCompat.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/subjectMsg"
+            android:layout_toStartOf="@+id/btnSend"
+            android:maxLines="1"
+            android:maxLength="150"
+            android:ellipsize="end"
+            android:hint="@string/type_msg" >
+            </EditText>
+        <Button
+            android:id="@+id/btnSend"
+            style="@style/btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_send" />
+
+    </RelativeLayout>
+
+</LinearLayout>

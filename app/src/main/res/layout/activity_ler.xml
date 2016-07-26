@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin" android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin" android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="br.edu.ifspsaocarlos.sdm.fragchat.view.otherActivities.ActivityLer">
+    <TextView
+        android:id="@+id/tv_origem_ler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/remetente"/>
+    <EditText
+        android:id="@+id/et_origem_ler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/remetente_hint"/>
+    <TextView
+        android:id="@+id/tv_destino_ler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/destinatario"/>
+    <EditText
+        android:id="@+id/et_destino_ler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/destinatatario_hint"/>
+    <TextView
+        android:id="@+id/tv_ultima_mensagem_ler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ultima_mensagem"/>
+    <EditText
+        android:id="@+id/et_ultima_mensagem_ler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/ultima_mensagem_hint"/>
+    <Button
+        android:id="@+id/bt_ler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ler"/>
+</LinearLayout>

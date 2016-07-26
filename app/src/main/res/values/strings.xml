@@ -1,0 +1,111 @@
+<resources>
+    <string name="app_name">fragChat</string>
+
+    <string name="destinatario">Destinatário</string>
+    <string name="remetente">Remetente</string>
+    <string name="remetente_hint">Digite o ID do remetente</string>
+    <string name="destinatatario_hint">Digite o ID do destinatário</string>
+    <string name="assunto">Assunto</string>
+    <string name="assunto_hint">Digite o assunto da mensagem</string>
+    <string name="mensagem">Mensagem</string>
+    <string name="mensagem_hint">Digite o texto da mensagem</string>
+    <string name="enviar">Enviar</string>
+    <string name="ultima_mensagem">Última mensagem lida</string>
+    <string name="ultima_mensagem_hint">Digite o ID da última mensagem</string>
+    <string name="ler">Ler</string>
+    <string name="novo_contato_adicionado">Um novo contato foi adicionado!</string>
+    <string name="novo_contato">Novo contato</string>
+    <string name="contatos_atualizados">Contatos atualizados!</string>
+    <string name="nova_msg_recebida">Nova mensagem recebida!</string>
+    <string name="nova_msg">Nova mensagem</string>
+    <string name="msgs_atualizadas">Mensagens atualizadas!</string>
+    <string name="clique_aqui">Clique aqui para visualizar</string>
+    <string name="url_base">http://www.nobile.pro.br/sdm/mensageiro</string>
+
+    <string name="mensagem_carregando">Carregando…</string>
+    <string name="mensagem_geral">Clique no botão para disparar a thread e alterar a view</string>
+    <string name="texto_inicial">Este texto será alterado</string>
+    <string name="texto_alterado">Texto foi alterado pelo clique no botão</string>
+
+    <string name="autenticacao">Autenticar Usuário</string>
+    <string name="user">teste@teste.com</string>
+    <string name="pwd">teste</string>
+    <string name="mainmenu">MainMenu</string>
+    <string name="abrir_drawer">Abrir menu</string>
+    <string name="fechar_drawer">Fechar menu</string>
+
+    <string name="login">Entrar</string>
+    <string name="profile">Perfil</string>
+    <string name="messenger">Messenger</string>
+    <string name="register">Registrar Usuário</string>
+    <string name="logout">Desconectar</string>
+    <string name="contatos">Contatos</string>
+
+    <string name="asynctaskws">**AsyncTaskWS</string>
+    <string name="msgtests">Mensagem</string>
+    <string name="runnable">Runnable</string>
+    <string name="uithread">RunOnUIThread</string>
+    <string name="volley">Volley</string>
+    <string name="exit">Sair</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="header_name">Nome</string>
+    <string name="msghandler"><![CDATA[Mensagem -> Handler]]></string>
+    <string name="runnableHandler"><![CDATA[Runnable -> Handler]]></string>
+    <string name="dialog_message">Selecione o tipo de abertura</string>
+    <string name="dialog_title">Escolha</string>
+    <string name="cancel">Não</string>
+    <string name="ok">Sim</string>
+    <string name="texto_informacao">
+                Clique no botão abaixo para preencher a tela com informações adquiridas nos Web Services </string>
+    <string name="texto_botao">Acessar Web Services</string>
+    <string name="library_name">fabbutton</string>
+    <string name="emailhint">Email</string>
+    <string name="passwordhint">Password</string>
+    <string name="link_signup">Sem conta ainda? Crie uma aqui</string>
+    <string name="btnLogin">Acessar</string>
+    <string name="btnMenuCtx">Outros</string>
+
+    <string name="type_subj">Assunto: </string>
+    <string name="type_msg">Digite sua mensagem</string>
+    <string name="my_chats">Meus grupos</string>
+    <string name="all_chats">Todas os Grupos</string>
+    <string name="search">Busca</string>
+    <string name="to">Para:</string>
+    <string name="edit">Editar</string>
+    <string name="new_chat">Novo Grupo</string>
+
+    <string name="msg_no_user_found">Sem usuários registrados!</string>
+    <string name="err_users">Error occurred while finding users:</string>
+    <string name="bio">Bio</string>
+    <string name="apelido">Apelido</string>
+    <string name="detalhes">Detalhes</string>
+    <string name="email_user">Email/User</string>
+    <string name="disconnected">Desconectado</string>
+    <string name="nome">Nome</string>
+    <string name="redigite">Redigite</string>
+    <string name="senha_anterior">Senha anterior</string>
+    <string name="senha">Senha</string>
+    <string name="logo">logo</string>
+    <string name="desc_imgok">Update finished</string>
+    <string name="id">ID: </string>
+    <string name="header_maintext">Nome</string>
+    <string name="desc_imgcover">Profile cover image</string>
+    <string name="desc_imgphoto">Profile Photo</string>
+    <string name="desc_menusec">Menu Secundário</string>
+    <string name="textview">TextView</string>
+    <string name="text">text</string>
+
+    <string name="title_activity_messenger">MessengerActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="msg_received">Recebida</string>
+    <string name="msg_saved">Salva</string>
+    <string name="msg_sending">Enviando...</string>
+    <string name="msg_delivered">Enviada</string>
+    <string name="msg_failed">Falha</string>
+    <string name="msg_read">Lida</string>
+    <string name="dialog_question">Deseja continuar?</string>
+    <string name="busca">Buscar contatos..</string>
+
+</resources>
