@@ -1,8 +1,10 @@
 package br.edu.ifspsaocarlos.sdm.fragchat.view.messenger;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -65,8 +67,8 @@ public class FragmentLoginAuth extends Fragment {
         _loginButton = (Button) view.findViewById(R.id.btn_login);
 
 
-        _emailText.setText("pedro@teste.com");
-        _passwordText.setText("acesso");
+        _emailText.setText("teste@teste.com");
+        _passwordText.setText("");
 
         localdb = new DBHelper(_context);
 
@@ -131,38 +133,43 @@ public class FragmentLoginAuth extends Fragment {
         Log.d(TAG, "Login");
 
         if (!validate()) {
-            onLoginFailed();
+            onLoginFailed("Erro de validação");
             return false;
         }
 
+        /*if (localdb.getAppStatus(0) == DBHelper.APPSTATUS_LOADING) {
+            Toast.makeText(this.getContext(), "Atualizando contatos, Espere um momento...", Toast.LENGTH_LONG).show();
+        }else {*/
 
-        ((ActivityMain) getActivity()).showProgressBar();
+            ((ActivityMain) getActivity()).showProgressBar();
+            new android.os.Handler().postDelayed(
+                    new Runnable() {
+                        public void run() {
+                            // On complete call either onLoginSuccess or onLoginFailed
 
-        new android.os.Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        // On complete call either onLoginSuccess or onLoginFailed
+                            String email = _emailText.getText().toString();
 
-                        String email = _emailText.getText().toString();
+                            _loggedUserProfile = localdb.validateContact(email);
 
-                        _loggedUserProfile = localdb.validateContact(email);
+                            if (_loggedUserProfile == null) {
+                                onLoginFailed("Usuário não cadastrado...");
+                                ((ActivityMain) getActivity()).dismissProgressBar();
+                                return;
+                            }
 
-                        if(_loggedUserProfile == null){
-                            onLoginFailed();
-                            ((ActivityMain) getActivity()).dismissProgressBar();
-                            return;
+                            if (!validateToken(_loggedUserToken))
+                                _loggedUserToken = localdb.getUserToken(_loggedUserProfile.getId());
+
+                            if (_loggedUserToken == null) {
+                                onLoginFailed("Cadastro desatualizado...");
+                            }else {
+                                ((ActivityMain) getActivity()).dismissProgressBar();
+                                onLoginSuccess();
+                            }
+
                         }
-
-                        if (!validateToken(_loggedUserToken))
-                            _loggedUserToken = localdb.getUserToken(_loggedUserProfile.getId());
-
-                        ((ActivityMain) getActivity()).dismissProgressBar();
-
-                        onLoginSuccess();
-
-                    }
-                }, 0);
-
+                    }, 0);
+        //}
         return true;
     }
 
@@ -177,7 +184,9 @@ public class FragmentLoginAuth extends Fragment {
         dataBundle.putLong("id", _loggedUserProfile.getId());
         dataBundle.putLong("token", _loggedUserToken.getId());
 
-        Fragment fragmento = FragmentProfile.newInstance(_context, FragmentProfile.PROFILE_MAINUSER);
+        //Fragment fragmento = FragmentProfile.newInstance(_context, FragmentProfile.PROFILE_MAINUSER);
+
+        Fragment fragmento = FragmentMessenger.newInstance(_context);
 
         fragmento.setArguments(dataBundle);
 
@@ -185,8 +194,8 @@ public class FragmentLoginAuth extends Fragment {
                 .replace(R.id.content_frame, fragmento, getString(R.string.profile)).addToBackStack(null).commit();
     }
 
-    public void onLoginFailed() {
-        Toast.makeText(getActivity().getBaseContext(), "Falha ao efetuar login", Toast.LENGTH_LONG).show();
+    public void onLoginFailed(String msg) {
+        Toast.makeText(getActivity().getBaseContext(), msg, Toast.LENGTH_LONG).show();
 
         _loginButton.setEnabled(true);
     }

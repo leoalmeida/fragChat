@@ -25,6 +25,7 @@ import br.edu.ifspsaocarlos.sdm.fragchat.models.UserTokenModel;
  */
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "MyDBName.db";
+    public static final String APPSTATUS_TABLE_NAME = "status";
     public static final String USERS_TABLE_NAME = "users";
     public static final String CONTACTS_TABLE_NAME = "contacts";
     public static final String GROUPS_TABLE_NAME = "groups";
@@ -91,6 +92,12 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String USERS_CHAT_MESSAGES_COLUMN_RECEIVEDDATE = "receivedDate";
     public static final String USERS_CHAT_MESSAGES_COLUMN_STATUS = "status";
 
+    public static final String APPSTATUS_COLUMN_ID = "id";
+    public static final String APPSTATUS_COLUMN_STATUS = "status";
+    public static final short APPSTATUS_LOADING = 1;
+    public static final short APPSTATUS_DONE = 0;
+    public static final short APPSTATUS_NOTFOUND = -1;
+
     private HashMap hp;
 
     public DBHelper(Context context) {
@@ -99,6 +106,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        db.execSQL(
+                "create table " + APPSTATUS_TABLE_NAME +
+                        "(id INTEGER primary key, " +
+                        " status short)"
+        );
         db.execSQL(
                 "create table " + USERS_TABLE_NAME +
                         "(id INTEGER primary key autoincrement, " +
@@ -197,6 +209,39 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + USERS_TOKEN_MNG_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + CHAT_MESSAGES_TABLE_NAME);
         onCreate(db);
+    }
+
+    public short getAppStatus(long statusID) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("select * from " + APPSTATUS_TABLE_NAME + " where " + APPSTATUS_COLUMN_ID + "=" + statusID + "", null);
+        res.moveToFirst();
+
+        short status = APPSTATUS_NOTFOUND;
+
+        if (res.getCount() > 0) {
+            status = res.getShort(res.getColumnIndex(DBHelper.APPSTATUS_COLUMN_STATUS));
+        }
+
+        if (!res.isClosed()) {
+            res.close();
+        }
+
+        return status;
+    }
+
+    public boolean toggleAppStatus(long id,short status) {
+
+        if (status < 0 && status > 1) return false;
+
+        ContentValues contentValues;
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        contentValues = new ContentValues();
+        contentValues.put(APPSTATUS_COLUMN_ID, id);
+        contentValues.put(APPSTATUS_COLUMN_STATUS, status);
+        db.insertWithOnConflict(APPSTATUS_TABLE_NAME, BaseColumns._ID, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
+
+        return true;
     }
 
     public long insertContacts(List<UserModel> contactsProfile) {
@@ -910,6 +955,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     res.getInt(res.getColumnIndex(DBHelper.USERS_TOKEN_COLUMN_RELEASE_DATE)),
                     res.getShort(res.getColumnIndex(DBHelper.USERS_TOKEN_COLUMN_STATUS)) == UserTokenModel.STATUS_DISABLED ? false : true);
         }
+
         if (!res.isClosed()) {
             res.close();
         }

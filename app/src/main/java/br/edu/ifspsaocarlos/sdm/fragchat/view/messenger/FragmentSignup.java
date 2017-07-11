@@ -147,8 +147,6 @@ public class FragmentSignup extends Fragment {
                         _nameText.setText(userProfile.getNome());
                         _emailText.setText(userProfile.getEmail());
                         _apelidoText.setText(userProfile.getApelido());
-                        _detalhesText.setText(userProfile.getDetalhes());
-                        _bioText.setText(userProfile.getBio());
                         _fabSignup.setVisibility(View.GONE);
                         _fabSignup.setClickable(false);
                         _fabUpdate.setVisibility(View.VISIBLE);
@@ -220,6 +218,7 @@ public class FragmentSignup extends Fragment {
 
             _userid.setVisibility(View.VISIBLE);
             _userid.setText(String.valueOf(userProfile.getId()));
+            userid = userProfile.getId();
 
             _nameText.setText((CharSequence) userProfile.getNome());
             _nameText.setFocusable(false);
@@ -244,33 +243,57 @@ public class FragmentSignup extends Fragment {
             _oldpasswordText.setVisibility(View.VISIBLE);
 
         }else {//register a new contact.
-            _fabSignup.setVisibility(View.VISIBLE);
-            _fabSignup.setClickable(true);
-            _fabUpdate.setVisibility(View.GONE);
-            _fabUpdate.setClickable(false);
-
-            _viewUserID.setVisibility(View.GONE);
-            _userid.setVisibility(View.GONE);
-
-            _nameText.setEnabled(true);
-            _nameText.setFocusable(true);
-            _nameText.setClickable(true);
 
             _emailText.setEnabled(true);
             _emailText.setFocusable(true);
             _emailText.setClickable(true);
+            _emailText.setText("teste@teste.com");
+
+            userProfile = localdb.findContactByEmail(_emailText.getText().toString());
+
+            if (userProfile != null) {
+                _fabSignup.setVisibility(View.GONE);
+                _fabSignup.setClickable(false);
+                _fabUpdate.setVisibility(View.VISIBLE);
+                _fabUpdate.setClickable(true);
+
+                _userid.setVisibility(View.VISIBLE);
+                _userid.setText(String.valueOf(userProfile.getId()));
+                userid = userProfile.getId();
+            }else {
+
+                _fabSignup.setVisibility(View.VISIBLE);
+                _fabSignup.setClickable(true);
+                _fabUpdate.setVisibility(View.GONE);
+                _fabUpdate.setClickable(false);
+
+                _viewUserID.setVisibility(View.GONE);
+                _userid.setVisibility(View.GONE);
+            }
+
+            _nameText.setEnabled(true);
+            _nameText.setFocusable(true);
+            _nameText.setClickable(true);
+            if ( userProfile.getNome() != "") _nameText.setText(userProfile.getNome());
+            else _nameText.setText("teste frag chat");
 
             _apelidoText.setEnabled(true);
             _apelidoText.setFocusable(true);
             _apelidoText.setClickable(true);
+            if ( userProfile.getApelido() != "") _apelidoText.setText(userProfile.getApelido());
+            else _apelidoText.setText("tst");
 
             _bioText.setEnabled(true);
             _bioText.setFocusable(true);
             _bioText.setClickable(true);
+            if ( userProfile.getBio() != "") _bioText.setText(userProfile.getBio());
+            else _bioText.setText("Bio default");
 
-            _bioText.setEnabled(true);
+            _detalhesText.setEnabled(true);
             _detalhesText.setFocusable(true);
             _detalhesText.setClickable(true);
+            if ( userProfile.getDetalhes() != "") _detalhesText.setText(userProfile.getDetalhes());
+            else _detalhesText.setText("Detalhes default");
 
             _oldpasswordText.setFocusable(false);
             _oldpasswordText.setVisibility(View.GONE);
@@ -278,10 +301,16 @@ public class FragmentSignup extends Fragment {
             _passwordText.setEnabled(true);
             _passwordText.setFocusableInTouchMode(true);
             _passwordText.setClickable(true);
+            _passwordText.setText("");
 
             _passwordText2.setEnabled(true);
             _passwordText2.setFocusableInTouchMode(true);
             _passwordText2.setClickable(true);
+            _passwordText2.setText("");
+
+            _avatarRadio.check(R.id.radio_avatar0);
+            _headerImgRadio.check(R.id.radio_header0);
+
         }
     }
 
@@ -298,7 +327,7 @@ public class FragmentSignup extends Fragment {
         final ProgressDialog progressDialog = new ProgressDialog(context,
                 R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Criando conta...");
+        progressDialog.setMessage("Atualizando conta...");
         progressDialog.show();
 
         userProfile = new UserModel();
@@ -360,8 +389,6 @@ public class FragmentSignup extends Fragment {
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Criando conta...");
         progressDialog.show();
-
-        userProfile = new UserModel();
 
         userProfile.setNome(_nameText.getText().toString());
         userProfile.setEmail(_emailText.getText().toString());

@@ -3,6 +3,7 @@ package br.edu.ifspsaocarlos.sdm.fragchat.view.messenger;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.app.NotificationManager;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -61,6 +62,7 @@ public class ActivityDefault extends AppCompatActivity implements View.OnClickLi
     protected NavigationView navDrawer;
     protected TextView mToolbarSubTitle;
     protected ProgressBar mToolbarProgress;
+    protected ProgressDialog progress;
     protected ImageView mToolbarProgressOK;
 
     protected NotificationManager mNotificationManager;
@@ -80,6 +82,7 @@ public class ActivityDefault extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        progress = new ProgressDialog(this);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         navDrawer = (NavigationView) findViewById(R.id.navView);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
@@ -105,12 +108,12 @@ public class ActivityDefault extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
+        this.localdb.toggleAppStatus(0, DBHelper.APPSTATUS_LOADING);
         // Sync the toggle state after onRestoreInstanceState has occurred.
         mDrawerToggle.syncState();
         newContactsServiceIntent = new Intent(this, MessengerContactsService.class);
         startService(NEW_CONTACT_SERVICE, 0);
         msgReceiverServiceIntent = new Intent(this, MessengerReceiverService.class);
-
     }
 
     protected boolean startService(short serviceid, long selectedContactId) {
@@ -130,7 +133,6 @@ public class ActivityDefault extends AppCompatActivity implements View.OnClickLi
                 msgReceiverServiceIntent.putExtra(MessengerReceiverService.TOKEN, loggedUserToken.getToken());
                 startService(msgReceiverServiceIntent);
         }
-
         return true;
     }
 

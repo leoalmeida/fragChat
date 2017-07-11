@@ -3,6 +3,7 @@ package br.edu.ifspsaocarlos.sdm.fragchat.service;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.app.Service;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
@@ -63,6 +64,7 @@ public class MessengerContactsService extends Service implements Runnable {
         firstSearch = true;
         lastContactNumber = 0;
         localdb = new DBHelper(this);
+        Toast.makeText(MessengerContactsService.this, "Atualizando Contatos", Toast.LENGTH_LONG).show();
         new Thread(this).start();
     }
 
@@ -75,10 +77,14 @@ public class MessengerContactsService extends Service implements Runnable {
     public void run() {
         while (appOpen) {
             try {
+                if (lastContactNumber>0 && firstSearch){
+                    localdb.toggleAppStatus(0, DBHelper.APPSTATUS_DONE);
+                    firstSearch = false;
+                }
                 Thread.sleep(getResources().getInteger(R.integer.service_round_time));
                 searchNewContacts();
-                if (!firstSearch && newContactNumber > lastContactNumber) {
-
+                if ( newContactNumber > lastContactNumber) {
+                    localdb.toggleAppStatus(0, DBHelper.APPSTATUS_LOADING);
                     lastContactNumber += localdb.insertContacts(contactList);
 
                     NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
@@ -100,7 +106,6 @@ public class MessengerContactsService extends Service implements Runnable {
                     nm.notify(R.mipmap.ic_launcher, notification);
                 }
                 // lastContactNumber = newContactNumber;
-                firstSearch = false;
             }
             catch (InterruptedException ie) {
                 Log.e("SDM", "Erro na thread de recuperação de contato");
@@ -114,6 +119,7 @@ public class MessengerContactsService extends Service implements Runnable {
         final String url = getString(R.string.url_base) + "/contato";
 
         try {
+
             JsonUTF8Request jsonObjectRequest = new JsonUTF8Request( Request.Method.GET, url, null,
                     new Response.Listener<JSONObject>() {
                         @Override
